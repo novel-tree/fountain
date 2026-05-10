@@ -1,0 +1,54 @@
+name: Content Update Request
+description: For authors or publishers to request changes to their page content.
+title: "[Content Update]: Author Name"
+labels: ["content update", "author/publisher request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping us keep Fountain accurate! Please fill out the details below.
+  - type: input
+    id: author-name
+    attributes:
+      label: Author Name
+      description: The name of the novelist as it appears on Fountain.
+      placeholder: e.g., Haruki Murakami
+    validations:
+      required: true
+  - type: checkboxes
+    id: update-type
+    attributes:
+      label: What would you like to update?
+      options:
+        - label: Profile Image
+        - label: Quotes
+        - label: SNS / Official Links
+        - label: Publisher Links
+        - label: Biography / Description
+        - label: Other (please specify below)
+  - type: textarea
+    id: details
+    attributes:
+      label: Detailed Changes
+      description: Please provide the exact text or links you would like us to use.
+      placeholder: |
+        New Link: https://twitter.com/author_handle
+        New Quote: "The most beautiful thing in the world is..."
+    validations:
+      required: true
+  - type: input
+    id: verification
+    attributes:
+      label: Verification Link (Optional)
+      description: A link to an official site or press release confirming these changes, if applicable.
+  - type: checkboxes
+    id: relationship
+    attributes:
+      label: Your Relationship to the Author
+      options:
+        - label: I am the author
+        - label: I am representing the publisher
+        - label: I am the author's official agent
+        - label: Other (please specify in details)
+    validations:
+      required: true

@@ -1,0 +1,35 @@
+name: New Author Suggestion
+description: Suggest a novelist to be featured on Fountain.
+title: "[Suggestion]: Author Name"
+labels: ["author suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We are always looking for great novelists to feature. Please provide the details below.
+  - type: input
+    id: author-name
+    attributes:
+      label: Author Name
+      placeholder: e.g., Natsuo Kirino
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should this author be featured?
+      description: Tell us a bit about their work and impact on literature.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official Sources
+      description: Links to official websites, publisher pages, or SNS accounts.
+    validations:
+      required: true
+  - type: textarea
+    id: sample-quote
+    attributes:
+      label: Sample Quote (Optional)
+      description: A quote from one of their works that represents their style.
