@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, LINE_Seed_JP } from "next/font/google";
 import "../globals.css";
+import { AppHeader } from "@/components/app-header";
+import { getDictionary } from "@/lib/get-dictionary";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const lineSeedJp = LINE_Seed_JP({
+  variable: "--font-line-seed-jp",
+  weight: ["100", "400", "700", "800"],
   subsets: ["latin"],
 });
 
@@ -25,12 +33,17 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${lineSeedJp.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AppHeader dict={dictionary.header} />
+        {children}
+      </body>
     </html>
   );
 }

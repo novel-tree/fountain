@@ -1,0 +1,13 @@
+{
+  "header": {
+    "title": "fountain",
+    "search": "Search…",
+    "searchPlaceholder": "Search authors and novels…",
+    "nav": {
+      "index": "Index",
+      "novelists": "Novelists",
+      "novels": "Novels",
+      "about": "About"
+    }
+  }
+}
